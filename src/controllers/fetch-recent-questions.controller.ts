@@ -4,13 +4,7 @@ import { ZodValidationPipe } from 'src/pipes/zod-validation-pipe'
 import { PrismaService } from 'src/prisma/prisma.service'
 import { z } from 'zod'
 
-const pageQueryParamSchema = z
-  .coerce
-  .number()
-  .min(1)
-  .optional()
-  .default(1)
-
+const pageQueryParamSchema = z.coerce.number().min(1).optional().default(1)
 
 const queryValidationPipe = new ZodValidationPipe(pageQueryParamSchema)
 
