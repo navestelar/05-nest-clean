@@ -1,5 +1,5 @@
-import { AppModule } from '@/app.module'
-import { PrismaService } from '@/prisma/prisma.service'
+import { HttpModule } from '@/infra/http/http.module'
+import { PrismaService } from '@/infra/prisma/prisma.service'
 import { INestApplication } from '@nestjs/common'
 import { Test } from '@nestjs/testing'
 import request from 'supertest'
@@ -10,7 +10,7 @@ describe('Create Account (E2E)', () => {
 
   beforeAll(async () => {
     const moduleRef = await Test.createTestingModule({
-      imports: [AppModule],
+      imports: [HttpModule],
     }).compile()
 
     app = moduleRef.createNestApplication()
